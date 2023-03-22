@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
 import Cookies from "js-cookie";
 import { SERVER_URL } from "../constants.js";
+import Assignment from "./Assignment.js";
 //properties assignmentName, dueDate, courseName
 class AddAssignment extends Component {
   constructor(props) {
@@ -31,7 +32,6 @@ class AddAssignment extends Component {
 
   mySubmitHandler = (event) => {
     event.preventDefault();
-    //this.state.assignmentName, this.state.dueDate, this.state.courseName
     const token = Cookies.get("XSRF-TOKEN");
 
     var assignmentName = this.state.assignmentName;
@@ -56,7 +56,7 @@ class AddAssignment extends Component {
             position: toast.POSITION.BOTTOM_LEFT,
           });
           console.log("A new Assignment has been added");
-          alert("The assignment" + assignmentName + " has been created!");
+          alert("The assignment " + assignmentName + " has been created!");
         } else {
           toast.error("Error, course not added", {
             position: toast.POSITION.BOTTOM_LEFT,
